@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-50.times.with_index(1) do |i|
-  Post.create(body: "投稿_#{i}")
+require "faker"
+Faker::Config.locale = :ja
+
+50.times do
+  Post.create!(body: Faker::Address.city)
 end
